@@ -9,7 +9,6 @@ async function startScanning() {
             const uid = event.serialNumber;
             document.getElementById('uid').textContent = `UID: ${uid}`;
             document.getElementById('status').textContent = 'Status: UID Read';
-            // sendUIDToServer(uid); // Your function to send the UID to the server
         };
     } catch (error) {
         console.error('Error: ', error);
