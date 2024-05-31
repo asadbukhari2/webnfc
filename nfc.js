@@ -1,19 +1,19 @@
 async function startScanning() {
     const ndef = new NDEFReader();
     console.log(ndef)
-    // try {
-    //     await ndef.scan();
-    //     document.getElementById('status').textContent = 'Status: Scanning...';
+    try {
+        await ndef.scan();
+        document.getElementById('status').textContent = 'Status: Scanning...';
 
-    //     ndef.onreading = event => {
-    //         const uid = event.serialNumber;
-    //         document.getElementById('uid').textContent = `UID: ${uid}`;
-    //         document.getElementById('status').textContent = 'Status: UID Read';
-    //     };
-    // } catch (error) {
-    //     console.error('Error: ', error);
-    //     document.getElementById('status').textContent = `Status: Error - ${error.message}`;
-    // }
+        ndef.onreading = event => {
+            const uid = event.serialNumber;
+            document.getElementById('uid').textContent = `UID: ${uid}`;
+            document.getElementById('status').textContent = 'Status: UID Read';
+        };
+    } catch (error) {
+        console.error('Error: ', error);
+        document.getElementById('status').textContent = `Status: Error - ${error.message}`;
+    }
 }
 
 async function checkNFCPermission() {
